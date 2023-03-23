@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      pre {
+        background: #322;
+        color: #fff;
+        padding: 1em 1.2em;
+        border-radius: 1em;
+        white-space: break-spaces;
+      }
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        /* width: 100%;
+        height: 100vh; */
+        background: #001122;
+        display: grid;
+        place-items: center;
+        font-family: "Poppins", sans-serif;
+        /* font-size: 5rem;
+        font-weight: 800; */
+      }
+      .loader {
+        font-size: 5rem;
+        font-weight: 800;
+        perspective: 1000px;
+        -webkit-perspective: 1000px;
+        margin-bottom: 5rem;
+      }
+      .loader > span {
+        display: inline-block;
+        color: #fff;
+        transform-style: preserve-3d;
+        transform-origin: 0 100%;
+        animation: anim 3s infinite linear;
+      }
+      .loader > span:nth-child(even) {
+        color: #00ed64;
+      }
+      .loader > span:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+      .loader > span:nth-child(3) {
+        animation-delay: 0.4s;
+      }
+      .loader > span:nth-child(4) {
+        animation-delay: 0.6s;
+      }
+      .loader > span:nth-child(5) {
+        animation-delay: 0.8s;
+      }
+      .loader > span:nth-child(6) {
+        animation-delay: 1s;
+      }
+      .loader > span:nth-child(7) {
+        animation-delay: 1.2s;
+      }
+      .loader > span:nth-child(8) {
+        animation-delay: 1.4s;
+      }
+      .loader > span:nth-child(9) {
+        animation-delay: 1.6s;
+      }
+      .loader > span:nth-child(10) {
+        animation-delay: 1.8s;
+      }
+      .loader > span:nth-child(11) {
+        animation-delay: 2s;
+      }
+      .loader > span:nth-child(12) {
+        animation-delay: 2.2s;
+      }
+      .loader > span:nth-child(13) {
+        animation-delay: 2.4s;
+      }
+      .loader > span:nth-child(14) {
+        animation-delay: 2.6s;
+      }
+      @keyframes anim {
+        35% {
+          transform: rotateX(360deg);
+        }
+        100% {
+          transform: rotateX(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="loader">
+      <span>W</span>
+      <span>e</span>
+      <span>b</span>
+      <span>s</span>
+      <span>i</span>
+      <span>t</span>
+      <span>e</span>
+      <span>_</span>
+      <span>M</span>
+      <span>e</span>
+      <span>n</span>
+      <span>t</span>
+      <span>o</span>
+      <span>r</span>
+    </div>
+    <div>
+      <button onclick="tw.play()">Play</button>
+      <button onclick="tw.pause()">Pause</button>
+      <!-- <button onclick="tw.setRate(100)">Slow</button>
+        <button onclick="tw.setRate(50)">Fast</button>
+        <button onclick="tw.setRate(25)">Faster</button>
+        <button onclick="tw.setRate(10)">Fastest</button> -->
+      <pre id="plop">
+               <!-- Art is pointless    without passion.
+             You have to go out    and create art. 
+              Get an actual job    doing what you love 
+              and make a living    by being yourself. 
+             You can’t just let    other people define 
+          the rest of your life    and say you will 
+          be a joke, a failure.    Follow your heart. 
+                You will end up    happy and free, not      
+             a starving artist.    Love your art and 
+          contribute to society    by inspiring people 
+        instead of wasting time    letting others tell you 
+               you’re worthless.   You can change the world. -->
+            Lorem ipsum dolor sit amet consectetur, 
+            adipisicing elit. 
+            Eum explicabo accusantium eius 
+            architecto nulla maiores dolorem, 
+            nisi facere veritatis eaque adipisci? 
+            Sequi non dignissimos vel nulla 
+            natus perferendis, deleniti eligendi?
+        </pre>
+    </div>
+
+    <script>
+      class TypeWriter {
+        constructor(el, rate = 50) {
+          this.el = el;
+          this.text = el.innerText;
+          this.pos = 0;
+          this.rate = rate;
+        }
+
+        play() {
+          this.pause();
+          this.el.innerText = this.timer
+            ? this.text.substring(0, this.pos)
+            : "";
+          this.timer = this.createTimer();
+        }
+
+        pause() {
+          clearInterval(this.timer);
+        }
+
+        setRate(rate) {
+          this.rate = rate;
+          this.play();
+        }
+
+        createTimer() {
+          this.pause();
+          return setInterval(() => {
+            if (
+              this.el.innerText.length === this.text.length ||
+              this.pos > this.text.length
+            ) {
+              this.pause();
+              this.pos = 0;
+            } else {
+              this.el.innerText += this.text[this.pos++];
+            }
+          }, this.rate);
+        }
+      }
+
+      const tw = new TypeWriter(document.querySelector("#plop"));
+    </script>
+  </body>
+</html>

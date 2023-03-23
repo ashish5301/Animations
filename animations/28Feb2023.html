@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Animation</title>
+    <style>
+      body {
+        background: #333;
+        padding-top: 5em;
+        display: flex;
+        justify-content: center;
+      }
+
+      .typewriter h1 {
+        color: #fff;
+        font-family: monospace;
+        overflow: hidden;
+        border-right: 0.15em solid orange;
+        white-space: nowrap;
+        margin: 0 auto;
+        letter-spacing: 0.15em;
+        animation: typing 8s steps(30, end), blink-caret 0.5s step-end infinite;
+      }
+      .typewriter h2 {
+        color: #e77777;
+        font-family: monospace;
+        overflow: hidden;
+        border-right: 0.15em solid rgb(252, 206, 113);
+        white-space: nowrap;
+        margin: 0 auto;
+        letter-spacing: 0.15em;
+        animation: typing 10s steps(30, end), blink-caret 0.5s step-end infinite;
+      }
+
+      /* The typing effect */
+      @keyframes typing {
+        from {
+          width: 0;
+        }
+        to {
+          width: 100%;
+        }
+      }
+
+      /* The typewriter cursor effect */
+      @keyframes blink-caret {
+        from,
+        to {
+          border-color: transparent;
+        }
+        50% {
+          border-color: orange;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="typewriter">
+      <h1>Priyal + Ashish === Priyashish</h1>
+      <br />
+      <h2>Samandar ki geheri tak geheraaaa ...</h2>
+      <br />
+      <h2>Aur aasman ki lambai tak lambaa ....</h2>
+      <br />
+      <h2>Maudiii bohot bohot bohot hi jydyaa ......</h2>
+    </div>
+  </body>
+</html>
